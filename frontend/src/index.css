@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #0B0F19;
+  --color-dark-card: #111827;
+  --color-dark-border: #1F2937;
+  --color-dark-text: #F9FAFB;
+  --color-dark-muted: #9CA3AF;
+  
+  --color-light-bg: #F8FAFC;
+  --color-light-card: #FFFFFF;
+  --color-light-border: #E2E8F0;
+  --color-light-text: #0F172A;
+  --color-light-muted: #64748B;
+  
+  --color-primary-dark: #3B82F6;
+  --color-primary-light: #2563EB;
+  
+  --color-secondary-dark: #06B6D4;
+  --color-secondary-light: #0891B2;
+  
+  --color-danger-dark: #EF4444;
+  --color-danger-light: #DC2626;
+  
+  --color-success-dark: #10B981;
+  --color-success-light: #059669;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --chart-grid: var(--color-light-border);
+    --chart-text: var(--color-light-muted);
+    --chart-tooltip-bg: var(--color-light-card);
+    --chart-tooltip-border: var(--color-light-border);
+    --chart-tooltip-text: var(--color-light-text);
+  }
+  
+  body {
+    @apply bg-light-bg text-light-text antialiased transition-colors duration-200;
+  }
+  
+  .dark {
+    --chart-grid: var(--color-dark-border);
+    --chart-text: var(--color-dark-muted);
+    --chart-tooltip-bg: var(--color-dark-card);
+    --chart-tooltip-border: var(--color-dark-border);
+    --chart-tooltip-text: var(--color-dark-text);
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-light-card border border-light-border rounded-xl shadow-sm p-4 md:p-6 transition-colors duration-200;
+  }
+  
+  .dark .card {
+    @apply bg-dark-card border-dark-border shadow-none;
+  }
+
+  .nav-link {
+    @apply flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200;
+  }
+
+  .nav-link-inactive {
+    @apply text-light-muted hover:text-light-text hover:bg-light-border/50;
+  }
+  
+  .dark .nav-link-inactive {
+    @apply text-dark-muted hover:text-dark-text hover:bg-dark-border/50;
+  }
+
+  .nav-link-active {
+    @apply bg-primary-light/10 text-primary-light;
+  }
+  
+  .dark .nav-link-active {
+    @apply bg-primary-dark/10 text-primary-dark;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-light hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors min-h-[44px];
+  }
+  
+  .dark .btn-primary {
+    @apply bg-primary-dark hover:bg-blue-600;
+  }
+}

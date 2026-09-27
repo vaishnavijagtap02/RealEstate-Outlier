@@ -1,0 +1,24 @@
+# Node modules and build
+node_modules/
+dist/
+build/
+.env
+.npm/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+*.log
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE and Editor
+.vscode/
+.idea/
