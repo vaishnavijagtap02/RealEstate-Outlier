@@ -41,7 +41,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-light-card/85 dark:bg-dark-card/85 backdrop-blur-md border-b border-light-border/60 dark:border-dark-border/80 px-4 py-3 flex items-center justify-between shadow-sm">
+      <header className="sticky top-0 z-50 bg-secondary-light/15 dark:bg-secondary-dark/15 backdrop-blur-md border-b border-secondary-light/20 dark:border-secondary-dark/20 px-4 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2.5">
           <div className="bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark p-2 rounded-lg text-white shadow-sm ring-1 ring-black/5 dark:ring-white/10">
             <Home size={20} />
