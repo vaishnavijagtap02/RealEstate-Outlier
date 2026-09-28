@@ -101,7 +101,7 @@ export default function ModelComparison() {
           {/* Regression Section */}
           {regResults && (
             <div className="card">
-              <h3 className="text-xl font-bold mb-6 border-b border-light-border dark:border-dark-border pb-3 flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-light-text dark:text-dark-text">
                 <BarChart2 className="text-secondary-light dark:text-secondary-dark" />
                 Regression Models (Continuous Price Prediction)
               </h3>
@@ -109,21 +109,21 @@ export default function ModelComparison() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="h-[400px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={formatRegData()} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+                    <BarChart data={formatRegData()} margin={{ top: 20, right: 30, left: 20, bottom: 90 }}>
                       <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                       <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fill: 'currentColor', opacity: 0.7 }} />
                       <YAxis domain={[0, 1]} tick={{ fill: 'currentColor', opacity: 0.7 }} />
                       <RechartsTooltip contentStyle={{ backgroundColor: 'var(--tw-prose-body)', borderColor: 'var(--tw-prose-invert-borders)', borderRadius: '8px' }} />
                       <Legend verticalAlign="top" height={36} />
-                      <Bar dataKey="Original R²" fill="#94a3b8" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="Cleaned R²" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Original R²" fill="var(--color-light-muted)" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Cleaned R²" fill="var(--color-primary-light)" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
                 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
-                    <thead className="text-xs uppercase bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                    <thead className="text-xs uppercase bg-primary-light/10 dark:bg-primary-dark/15 text-primary-light dark:text-primary-dark font-bold">
                       <tr>
                         <th className="px-4 py-3">Model</th>
                         <th className="px-4 py-3">Orig R²</th>
@@ -154,7 +154,7 @@ export default function ModelComparison() {
           {/* Classification Section */}
           {clsResults && (
             <div className="card">
-              <h3 className="text-xl font-bold mb-6 border-b border-light-border dark:border-dark-border pb-3 flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-light-text dark:text-dark-text">
                 <BarChart2 className="text-success-light dark:text-success-dark" />
                 Classification Models (Premium Prediction)
               </h3>
@@ -162,21 +162,21 @@ export default function ModelComparison() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="h-[400px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={formatClsData()} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+                    <BarChart data={formatClsData()} margin={{ top: 20, right: 30, left: 20, bottom: 90 }}>
                       <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                       <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fill: 'currentColor', opacity: 0.7 }} />
                       <YAxis domain={[0, 1]} tick={{ fill: 'currentColor', opacity: 0.7 }} />
                       <RechartsTooltip contentStyle={{ backgroundColor: 'var(--tw-prose-body)', borderColor: 'var(--tw-prose-invert-borders)', borderRadius: '8px' }} />
                       <Legend verticalAlign="top" height={36} />
-                      <Bar dataKey="Original Acc" fill="#94a3b8" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="Cleaned Acc" fill="#10b981" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Original Acc" fill="var(--color-light-muted)" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Cleaned Acc" fill="var(--color-success-light)" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
                 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
-                    <thead className="text-xs uppercase bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                    <thead className="text-xs uppercase bg-success-light/10 dark:bg-success-dark/15 text-success-light dark:text-success-dark font-bold">
                       <tr>
                         <th className="px-4 py-3">Model</th>
                         <th className="px-4 py-3">Orig Acc</th>

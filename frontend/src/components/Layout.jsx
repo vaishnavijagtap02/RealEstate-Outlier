@@ -41,13 +41,13 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-light-card dark:bg-dark-card border-b border-light-border dark:border-dark-border px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="bg-primary-light dark:bg-primary-dark p-2 rounded-lg text-white">
+      <header className="sticky top-0 z-50 bg-light-card/85 dark:bg-dark-card/85 backdrop-blur-md border-b border-light-border/60 dark:border-dark-border/80 px-4 py-3 flex items-center justify-between shadow-sm">
+        <div className="flex items-center gap-2.5">
+          <div className="bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark p-2 rounded-lg text-white shadow-sm ring-1 ring-black/5 dark:ring-white/10">
             <Home size={20} />
           </div>
-          <h1 className="text-xl font-bold tracking-tight hidden sm:block text-gray-900 dark:text-white">
-            RealEstate<span className="text-primary-light dark:text-primary-dark">-Outlier</span>
+          <h1 className="text-xl font-bold tracking-tight hidden sm:block text-light-text dark:text-white">
+            RealEstate<span className="text-primary-light dark:text-primary-dark font-medium">-Outlier</span>
           </h1>
         </div>
 

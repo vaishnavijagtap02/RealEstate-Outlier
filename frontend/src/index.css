@@ -1,31 +1,33 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
-  --color-dark-bg: #0B0F19;
-  --color-dark-card: #111827;
-  --color-dark-border: #1F2937;
-  --color-dark-text: #F9FAFB;
-  --color-dark-muted: #9CA3AF;
+  --color-dark-bg: #09090b;
+  --color-dark-card: #141417;
+  --color-dark-border: #27272a;
+  --color-dark-text: #f4f4f5;
+  --color-dark-muted: #a1a1aa;
   
-  --color-light-bg: #F8FAFC;
-  --color-light-card: #FFFFFF;
-  --color-light-border: #E2E8F0;
-  --color-light-text: #0F172A;
-  --color-light-muted: #64748B;
+  --color-light-bg: #fafafa;
+  --color-light-card: #ffffff;
+  --color-light-border: #e4e4e7;
+  --color-light-text: #18181b;
+  --color-light-muted: #71717a;
   
-  --color-primary-dark: #3B82F6;
-  --color-primary-light: #2563EB;
+  --color-primary-dark: #6366f1;
+  --color-primary-light: #4f46e5;
   
-  --color-secondary-dark: #06B6D4;
-  --color-secondary-light: #0891B2;
+  --color-secondary-dark: #14b8a6;
+  --color-secondary-light: #0d9488;
   
-  --color-danger-dark: #EF4444;
-  --color-danger-light: #DC2626;
+  --color-danger-dark: #f43f5e;
+  --color-danger-light: #e11d48;
   
-  --color-success-dark: #10B981;
+  --color-success-dark: #10b981;
   --color-success-light: #059669;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
@@ -38,7 +40,7 @@
   }
   
   body {
-    @apply bg-light-bg text-light-text antialiased transition-colors duration-200;
+    @apply bg-light-bg text-light-text antialiased transition-colors duration-200 font-sans tracking-tight;
   }
   
   .dark {
@@ -56,38 +58,38 @@
 
 @layer components {
   .card {
-    @apply bg-light-card border border-light-border rounded-xl shadow-sm p-4 md:p-6 transition-colors duration-200;
+    @apply bg-light-card border border-light-border/60 rounded-xl shadow-sm p-5 md:p-7 transition-all duration-200;
   }
   
   .dark .card {
-    @apply bg-dark-card border-dark-border shadow-none;
+    @apply bg-dark-card border-dark-border/80 shadow-none;
   }
 
   .nav-link {
-    @apply flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200;
+    @apply flex items-center px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
   }
 
   .nav-link-inactive {
-    @apply text-light-muted hover:text-light-text hover:bg-light-border/50;
+    @apply text-light-muted hover:text-light-text hover:bg-light-border/40;
   }
   
   .dark .nav-link-inactive {
-    @apply text-dark-muted hover:text-dark-text hover:bg-dark-border/50;
+    @apply text-dark-muted hover:text-dark-text hover:bg-dark-border/40;
   }
 
   .nav-link-active {
-    @apply bg-primary-light/10 text-primary-light;
+    @apply bg-primary-light/10 text-primary-light ring-1 ring-primary-light/20;
   }
   
   .dark .nav-link-active {
-    @apply bg-primary-dark/10 text-primary-dark;
+    @apply bg-primary-dark/15 text-primary-dark ring-1 ring-primary-dark/30;
   }
   
   .btn-primary {
-    @apply bg-primary-light hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors min-h-[44px];
+    @apply bg-primary-light hover:bg-primary-light/90 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm active:scale-[0.98] min-h-[44px];
   }
   
   .dark .btn-primary {
-    @apply bg-primary-dark hover:bg-blue-600;
+    @apply bg-primary-dark hover:bg-primary-dark/90 shadow-none;
   }
 }

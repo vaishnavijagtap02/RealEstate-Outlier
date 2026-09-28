@@ -77,7 +77,7 @@ export default function Dashboard() {
     <div className="flex flex-col gap-8 pb-10 max-w-7xl mx-auto">
       
       {/* 1. Experiment Summary Header */}
-      <div className="card bg-gradient-to-r from-primary-light/5 to-transparent dark:from-primary-dark/10 border-l-4 border-l-primary-light dark:border-l-primary-dark">
+      <div className="card border-l-4 border-l-primary-light dark:border-l-primary-dark bg-primary-light/[0.03] dark:bg-primary-dark/[0.03]">
         <div className="flex flex-col md:flex-row justify-between gap-6">
           <div>
             <h2 className="text-2xl font-bold tracking-tight mb-2">ML Experiment Overview</h2>
@@ -91,8 +91,8 @@ export default function Dashboard() {
               <div className="flex items-center gap-1.5"><Target size={16} className="text-primary-light dark:text-primary-dark"/> <span className="font-medium">Target:</span> {dataSummary.regression_target}</div>
             </div>
           </div>
-          <div className="flex flex-col justify-center bg-white dark:bg-dark-card p-4 rounded-lg shadow-sm border border-light-border dark:border-dark-border min-w-[200px]">
-             <div className="text-sm text-light-muted dark:text-dark-muted mb-1 font-medium flex items-center gap-1.5"><AlertTriangle size={14}/> Detected Outliers (IQR)</div>
+          <div className="flex flex-col justify-center bg-light-card/80 dark:bg-dark-bg/40 backdrop-blur-sm p-5 rounded-xl border border-light-border/60 dark:border-dark-border/80 min-w-[220px] ring-1 ring-black/5 dark:ring-white/5">
+             <div className="text-sm text-light-muted dark:text-dark-muted mb-2 font-medium flex items-center gap-1.5"><AlertTriangle size={15}/> Detected Outliers (IQR)</div>
              <div className="text-3xl font-bold text-danger-light dark:text-danger-dark">{outlierSummary.outlier_count}</div>
              <div className="text-xs text-danger-light/80 dark:text-danger-dark/80 font-medium">({outlierSummary.outlier_percentage}% of dataset)</div>
           </div>
@@ -100,8 +100,8 @@ export default function Dashboard() {
       </div>
 
       {/* 2. Outlier Impact (The Key Focus) */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-bold flex items-center gap-2 border-b border-light-border dark:border-dark-border pb-2">
+      <div className="flex flex-col gap-5">
+        <h3 className="text-xl font-bold flex items-center gap-2 text-light-text dark:text-dark-text">
            <TrendingUp className="text-danger-light dark:text-danger-dark" />
            The Outlier Impact (Before vs After)
         </h3>
@@ -136,15 +136,15 @@ export default function Dashboard() {
            
            <div className="card flex flex-col justify-center bg-success-light/10 dark:bg-success-dark/10 border-success-light/20">
              <div className="flex items-center gap-2 font-bold text-success-light dark:text-success-dark mb-2"><CheckCircle size={18}/> Evaluation Complete</div>
-             <div className="text-sm font-medium text-gray-900 dark:text-gray-100">{Object.keys(regResults).length} Regression Models Trained</div>
-             <div className="text-sm font-medium text-gray-900 dark:text-gray-100">{Object.keys(clsResults).length} Classification Models Trained</div>
+             <div className="text-sm font-medium text-light-text dark:text-dark-text">{Object.keys(regResults).length} Regression Models Trained</div>
+             <div className="text-sm font-medium text-light-text dark:text-dark-text">{Object.keys(clsResults).length} Classification Models Trained</div>
            </div>
         </div>
       </div>
 
       {/* 3. Model Performance Comparison */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-bold flex items-center gap-2 border-b border-light-border dark:border-dark-border pb-2">
+      <div className="flex flex-col gap-5">
+        <h3 className="text-xl font-bold flex items-center gap-2 text-light-text dark:text-dark-text">
            <BarChart2 className="text-primary-light dark:text-primary-dark" />
            Model Performance Comparison
         </h3>
@@ -154,14 +154,14 @@ export default function Dashboard() {
             <h4 className="text-md font-semibold mb-4 text-center">R² Performance (Original vs Cleaned)</h4>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={regChartData} margin={{ top: 10, right: 10, left: -20, bottom: 40 }}>
+                <BarChart data={regChartData} margin={{ top: 10, right: 10, left: -20, bottom: 90 }}>
                   <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                   <XAxis dataKey="name" angle={-45} textAnchor="end" tick={{ fontSize: 12, fill: 'currentColor', opacity: 0.7 }} />
                   <YAxis domain={[0, 1]} tick={{ fontSize: 12, fill: 'currentColor', opacity: 0.7 }} />
                   <RechartsTooltip contentStyle={{ backgroundColor: 'var(--chart-tooltip-bg)', borderColor: 'var(--chart-tooltip-border)', borderRadius: '8px', color: 'var(--chart-tooltip-text)' }} />
                   <Legend verticalAlign="top" height={36} />
-                  <Bar dataKey="Original R²" fill="#94a3b8" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="Cleaned R²" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="Original R²" fill="var(--color-light-muted)" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="Cleaned R²" fill="var(--color-primary-light)" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -170,7 +170,7 @@ export default function Dashboard() {
           <div className="card overflow-x-auto">
             <h4 className="text-md font-semibold mb-4">Regression Metrics Overview</h4>
             <table className="w-full text-sm text-left">
-              <thead className="text-xs uppercase bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+              <thead className="text-xs uppercase bg-primary-light/10 dark:bg-primary-dark/15 text-primary-light dark:text-primary-dark font-bold">
                 <tr>
                   <th className="px-3 py-3">Model</th>
                   <th className="px-3 py-3 text-right">Original (RMSE / R²)</th>
@@ -196,8 +196,8 @@ export default function Dashboard() {
       </div>
 
       {/* 4. Dataset / Target Overview */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-bold flex items-center gap-2 border-b border-light-border dark:border-dark-border pb-2">
+      <div className="flex flex-col gap-5">
+        <h3 className="text-xl font-bold flex items-center gap-2 text-light-text dark:text-dark-text">
            <Database className="text-secondary-light dark:text-secondary-dark" />
            Dataset Data Distribution
         </h3>
@@ -213,8 +213,8 @@ export default function Dashboard() {
                 <YAxis type="number" dataKey="SalePrice" name="Sale Price" unit="$" tickFormatter={v => `${v/1000}k`} tick={{fill: 'currentColor', opacity: 0.7}} />
                 <RechartsTooltip cursor={{strokeDasharray: '3 3'}} contentStyle={{ backgroundColor: 'var(--chart-tooltip-bg)', borderColor: 'var(--chart-tooltip-border)', borderRadius: '8px', color: 'var(--chart-tooltip-text)' }} formatter={(value, name) => name === 'Sale Price' ? formatCurrency(value) : value} />
                 <Legend verticalAlign="top" height={36}/>
-                <Scatter name="Clean Data" data={cleanScatter} fill="#3b82f6" opacity={0.6} />
-                <Scatter name="Detected Outliers" data={outlierScatter} fill="#ef4444" opacity={0.8} />
+                <Scatter name="Clean Data" data={cleanScatter} fill="var(--color-primary-light)" opacity={0.6} />
+                <Scatter name="Detected Outliers" data={outlierScatter} fill="var(--color-danger-light)" opacity={0.8} />
               </ScatterChart>
             </ResponsiveContainer>
           </div>

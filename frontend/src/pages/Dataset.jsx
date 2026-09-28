@@ -50,7 +50,7 @@ export default function Dataset() {
         ) : (
           <div className="overflow-x-auto w-full h-full max-h-[70vh]">
             <table className="w-full text-left text-sm whitespace-nowrap">
-              <thead className="text-xs uppercase bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 sticky top-0 z-10">
+              <thead className="text-xs uppercase bg-primary-light/10 dark:bg-primary-dark/15 text-primary-light dark:text-primary-dark font-bold sticky top-0 z-10 shadow-sm backdrop-blur-md">
                 <tr>
                   {columns.map((col) => (
                     <th key={col} className="px-6 py-4 font-semibold tracking-wider">

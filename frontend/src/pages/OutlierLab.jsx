@@ -95,7 +95,7 @@ export default function OutlierLab() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Controls Panel */}
         <div className="card flex flex-col gap-6">
-          <div className="flex items-center gap-2 border-b border-light-border dark:border-dark-border pb-4">
+          <div className="flex items-center gap-2 pb-2">
             <Settings2 className="text-primary-light dark:text-primary-dark" />
             <h3 className="text-lg font-semibold">Detection Settings</h3>
           </div>
@@ -242,9 +242,9 @@ export default function OutlierLab() {
                       <YAxis tickFormatter={(val) => `$${val/1000}k`} tick={{ fill: 'currentColor', opacity: 0.5 }} />
                       <RechartsTooltip formatter={(value) => `$${value.toLocaleString()}`} contentStyle={{ backgroundColor: 'var(--tw-prose-body)', borderColor: 'var(--tw-prose-invert-borders)', borderRadius: '8px' }} />
                       <Legend verticalAlign="top" height={36} />
-                      <Line type="monotone" dataKey="pred_before" name="Before Outlier" stroke="#3b82f6" strokeWidth={3} dot={false} />
-                      <Line type="monotone" dataKey="pred_after" name="After Outlier" stroke="#ef4444" strokeWidth={3} strokeDasharray="5 5" dot={false} />
-                      <ReferenceDot x={experimentData.features[expResult.feature_name]} y={expResult.target_price} r={6} fill="#ef4444" stroke="white" strokeWidth={2} isFront={true} />
+                      <Line type="monotone" dataKey="pred_before" name="Before Outlier" stroke="var(--color-primary-light)" strokeWidth={3} dot={false} />
+                      <Line type="monotone" dataKey="pred_after" name="After Outlier" stroke="var(--color-danger-light)" strokeWidth={3} strokeDasharray="5 5" dot={false} />
+                      <ReferenceDot x={experimentData.features[expResult.feature_name]} y={expResult.target_price} r={6} fill="var(--color-danger-light)" stroke="white" strokeWidth={2} isFront={true} />
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
