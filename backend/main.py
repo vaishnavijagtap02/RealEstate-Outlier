@@ -28,6 +28,16 @@ trained_pipelines = {
     "classification": None
 }
 
+# Add cache for results to prevent redundant training
+cached_results = {
+    "regression": None,
+    "classification": None
+}
+cached_methods = {
+    "regression": None,
+    "classification": None
+}
+
 # Configure CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
@@ -108,11 +118,17 @@ def features():
 @app.post("/api/models/train/regression")
 def train_regression(method: str = "iqr"):
     """Run the central experiment for regression models."""
+    global trained_pipelines, cached_results, cached_methods
+    if cached_methods["regression"] == method and cached_results["regression"] is not None:
+        return {"status": "success", "results": cached_results["regression"]}
+
     df = get_dataset()
     results, pipelines = run_regression_experiment(df, outlier_method=method)
     
     # Store in memory
     trained_pipelines["regression"] = pipelines
+    cached_results["regression"] = results
+    cached_methods["regression"] = method
     
     return {"status": "success", "results": results}
 
@@ -120,11 +136,17 @@ def train_regression(method: str = "iqr"):
 @app.post("/api/models/train/classification")
 def train_classification(method: str = "iqr"):
     """Run the central experiment for classification models."""
+    global trained_pipelines, cached_results, cached_methods
+    if cached_methods["classification"] == method and cached_results["classification"] is not None:
+        return {"status": "success", "results": cached_results["classification"]}
+
     df = get_dataset()
     results, pipelines = run_classification_experiment(df, outlier_method=method)
     
     # Store in memory
     trained_pipelines["classification"] = pipelines
+    cached_results["classification"] = results
+    cached_methods["classification"] = method
     
     return {"status": "success", "results": results}
 

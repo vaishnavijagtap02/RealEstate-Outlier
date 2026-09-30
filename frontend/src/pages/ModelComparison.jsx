@@ -113,7 +113,7 @@ export default function ModelComparison() {
                       <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                       <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fill: 'currentColor', opacity: 0.7 }} />
                       <YAxis domain={[0, 1]} tick={{ fill: 'currentColor', opacity: 0.7 }} />
-                      <RechartsTooltip contentStyle={{ backgroundColor: 'var(--tw-prose-body)', borderColor: 'var(--tw-prose-invert-borders)', borderRadius: '8px' }} />
+                      <RechartsTooltip contentStyle={{ backgroundColor: 'var(--chart-tooltip-bg)', borderColor: 'var(--chart-tooltip-border)', color: 'var(--chart-tooltip-text)', borderRadius: '8px' }} />
                       <Legend verticalAlign="top" height={36} />
                       <Bar dataKey="Original R²" fill="var(--color-light-muted)" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="Cleaned R²" fill="var(--color-primary-light)" radius={[4, 4, 0, 0]} />
@@ -166,7 +166,7 @@ export default function ModelComparison() {
                       <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                       <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fill: 'currentColor', opacity: 0.7 }} />
                       <YAxis domain={[0, 1]} tick={{ fill: 'currentColor', opacity: 0.7 }} />
-                      <RechartsTooltip contentStyle={{ backgroundColor: 'var(--tw-prose-body)', borderColor: 'var(--tw-prose-invert-borders)', borderRadius: '8px' }} />
+                      <RechartsTooltip contentStyle={{ backgroundColor: 'var(--chart-tooltip-bg)', borderColor: 'var(--chart-tooltip-border)', color: 'var(--chart-tooltip-text)', borderRadius: '8px' }} />
                       <Legend verticalAlign="top" height={36} />
                       <Bar dataKey="Original Acc" fill="var(--color-light-muted)" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="Cleaned Acc" fill="var(--color-success-light)" radius={[4, 4, 0, 0]} />

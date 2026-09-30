@@ -32,6 +32,17 @@
 
 @layer base {
   :root {
+    --color-accent: var(--color-primary-light);
+    --color-accent-glow: color-mix(in srgb, var(--color-primary-light) 10%, transparent);
+    --color-danger: var(--color-danger-light);
+    --color-danger-glow: color-mix(in srgb, var(--color-danger-light) 10%, transparent);
+    --color-success: var(--color-success-light);
+    --color-border: var(--color-light-border);
+    --color-border-hover: color-mix(in srgb, var(--color-light-border) 80%, black);
+    --color-surface-2: #f4f4f5;
+    --color-text-main: var(--color-light-text);
+    --color-text-muted: var(--color-light-muted);
+
     --chart-grid: var(--color-light-border);
     --chart-text: var(--color-light-muted);
     --chart-tooltip-bg: var(--color-light-card);
@@ -44,6 +55,17 @@
   }
   
   .dark {
+    --color-accent: #818cf8; /* indigo-400 for better dark mode visibility */
+    --color-accent-glow: color-mix(in srgb, #818cf8 15%, transparent);
+    --color-danger: #fb7185; /* rose-400 for better dark mode visibility */
+    --color-danger-glow: color-mix(in srgb, #fb7185 15%, transparent);
+    --color-success: #34d399; /* emerald-400 */
+    --color-border: var(--color-dark-border);
+    --color-border-hover: color-mix(in srgb, var(--color-dark-border) 80%, white);
+    --color-surface-2: #18181b;
+    --color-text-main: var(--color-dark-text);
+    --color-text-muted: var(--color-dark-muted);
+
     --chart-grid: var(--color-dark-border);
     --chart-text: var(--color-dark-muted);
     --chart-tooltip-bg: var(--color-dark-card);
@@ -91,5 +113,9 @@
   
   .dark .btn-primary {
     @apply bg-primary-dark hover:bg-primary-dark/90 shadow-none;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 12px color-mix(in srgb, currentColor 50%, transparent);
   }
 }

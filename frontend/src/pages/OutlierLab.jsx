@@ -240,7 +240,7 @@ export default function OutlierLab() {
                       <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                       <XAxis dataKey={expResult.feature_name} type="number" domain={['dataMin', 'dataMax']} tick={{ fill: 'currentColor', opacity: 0.5 }} />
                       <YAxis tickFormatter={(val) => `$${val/1000}k`} tick={{ fill: 'currentColor', opacity: 0.5 }} />
-                      <RechartsTooltip formatter={(value) => `$${value.toLocaleString()}`} contentStyle={{ backgroundColor: 'var(--tw-prose-body)', borderColor: 'var(--tw-prose-invert-borders)', borderRadius: '8px' }} />
+                      <RechartsTooltip formatter={(value) => `$${value.toLocaleString()}`} contentStyle={{ backgroundColor: 'var(--chart-tooltip-bg)', borderColor: 'var(--chart-tooltip-border)', color: 'var(--chart-tooltip-text)', borderRadius: '8px' }} />
                       <Legend verticalAlign="top" height={36} />
                       <Line type="monotone" dataKey="pred_before" name="Before Outlier" stroke="var(--color-primary-light)" strokeWidth={3} dot={false} />
                       <Line type="monotone" dataKey="pred_after" name="After Outlier" stroke="var(--color-danger-light)" strokeWidth={3} strokeDasharray="5 5" dot={false} />
